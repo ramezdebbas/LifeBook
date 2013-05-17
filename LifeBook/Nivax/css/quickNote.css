@@ -1,0 +1,93 @@
+﻿.noteText {
+    border-width: 2px 1px 1px 2px;
+    border-style: solid;
+    border-color: grey;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-family: Comic Sans MS;
+    font-size: 18px;
+    overflow: auto;
+    color: #171c3b;
+    padding-right: 50px;
+    width: 170px;
+    height: 200px;
+    margin-top: -2px;
+    padding-left: 4px;
+    padding-top: 2px;
+    background-image: url('../images/0002.png');
+}
+
+#addNote {
+        
+        -row: 1;
+    -ms-grid-column: 3;
+    /*background-color: rgba(167, 57, 57, .60);*/
+    background-color: rgba(167, 5, 57, .40);
+    border-top: 0px;
+    border-bottom: 4px;
+    border-left: 4px;
+    border-right: 4px;
+    border-color: rgba(167, 57, 57, 1);
+    border-style: solid;
+    text-align: center;
+	color: white;
+	font-size: 18px;
+    cursor: pointer;
+    padding-top: 15px;
+    font-weight: bold;
+}
+
+#refreshButton {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+}
+
+    #refreshButton .win-commandring {
+        border-color: rgba(167, 57, 57, 1);
+    }
+
+    #refreshButton .win-commandimage {
+        color: rgba(167, 57, 57, 1);
+    }
+
+#notesGrid.win-listview {
+    margin-left: 50px;
+    width: 90%;
+    height: 550px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+    #notesGrid .win-container.win-selected .win-selectionborder {
+        border-color: #7f33e1
+    }
+
+    #notesGrid .win-container.win-selected .win-selectioncheckmarkbackground {
+        border-top-color: #171c3b;
+        border-right-color: #171c3b;
+        border-left-color: transparent;
+        border-bottom-color: transparent;
+    }
+
+#newNoteFlyout, #editNoteFlyout {
+    border-color: forestgreen;
+    border-width: 4px;
+}
+
+.newNoteText {
+    color: #171c3b;
+    height: 150px;
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+#note::selection, #note select:focus::-ms-value, #editNoteText::selection, #editNoteText select:focus::-ms-value {
+    background-color: rgba(59, 130, 59, 0.3);
+    color: rgb(59, 130, 59);
+}
+
+#note, #editNoteText {
+    color: rgb(59, 130, 59);
+}

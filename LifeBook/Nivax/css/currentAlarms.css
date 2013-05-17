@@ -1,0 +1,238 @@
+﻿#alarmsList{
+	height: 90%;
+	width: 80%;
+    padding-top: 20px;
+	padding-left: 70px;
+    color: rgba(167, 57, 57, 1);
+}
+
+    #alarmsList .win-container.win-selected .win-selectionborder {
+        border-color: rgb(107, 18, 18);
+    }
+
+    #alarmsList .win-container.win-selected .win-selectioncheckmarkbackground {
+        border-top-color: rgb(107, 18, 18);
+        border-right-color: rgb(107, 18, 18);
+        border-left-color: transparent;
+        border-bottom-color: transparent;
+    }
+
+.mediumListIconTextItem
+{
+    height: 70px;
+    padding: 5px;
+    overflow: hidden;
+    display: -ms-grid;
+}
+    .mediumListIconTextItem .mediumListIconTextItem-Detail {
+        margin: 5px;
+        -ms-grid-column: 2;
+    }
+
+    .mediumListIconTextItem .mediumListIconTextItem-image {
+        -ms-grid-column: 3;
+    }
+
+.alarmLabels {
+	text-align: left;
+	padding-left: 40px;
+	font-size: x-large;
+	color: #171c3b;
+	font-weight: 600;
+    display: none;
+}
+
+.alarmValues {
+    font-size: large;
+    color: forestgreen;
+    padding-left: 60px;
+    font-weight: 600;
+}
+
+.mediumListIconTextItem .mediumListIconTextItem-Detail
+{
+    margin: 5px;
+    -ms-grid-column: 2;
+}
+
+.tip {
+    font-size: medium;
+    color: #423a3a;
+    font-style: italic;
+    position: relative;
+    left: 0px;
+}
+
+#leftContainerCA {
+    width: 100%; /*background-color: #3b823b;*/
+    background-color: rgba(167, 57, 57, 1);
+    -ms-grid-column: 1;
+    background-image: url('../images/left2.jpg');
+}
+
+#rightContainerCA {
+    height: 100%;
+    width: 100%;
+    -ms-grid-column: 2;
+    color: black;
+}
+
+.pagetitle {
+    font-weight: bold;
+    font-size: 44px;
+    padding-left: 40px;
+    color: white;
+}
+
+.column {
+    width: 50%;
+    height: 100px;
+    vertical-align: top;
+}
+
+#alarmTimeCA [class^="win-timepicker"]{
+    font-size: 70px;
+    color: #3b823b;
+}
+
+#alarmDateCA [class^="win-datepicker"]{
+    color: #3b823b;
+}
+
+.validationError {
+    font-style: italic;
+    font-size: 25px;
+    color: rgba(4, 9, 34, 0.3);
+    font-family: 'Monotype Corsiva';
+    font-weight: 600;
+    padding-left: 35px;
+}
+
+body{
+    background-color: white;
+}
+
+#setNewAlarm{
+	-
+        -column: 1;
+	-ms-grid-row: 1;
+    -ms-grid-column-span: 5;
+	background-color: #8700ff;
+	text-align: right;
+	color: white;
+	font-size: 30px;
+    cursor: pointer;
+    position: static;
+    margin: 0px;
+    height: 100%;
+}
+#currentAlarms{
+	-ms-grid-column: 2;
+	-ms-grid-row: 2;
+	/*background-color: #3b823b;*/
+    background-color: rgba(255, 156, 0, 0.40);
+	text-align: center;
+	color: white;
+	font-size: 30px;
+    cursor: pointer;
+    position: static;
+    margin: 0px;
+    height: 100%;
+}
+
+#thingsToDo {
+    -ms-grid-column: 4;
+	-ms-grid-row: 2;
+	/*background-color: #8989ff;*/
+    background-color: rgba(167, 57, 57, .40);
+	text-align: center;
+	color: white;
+	font-size: 30px;
+    cursor: pointer;
+    margin: 0px;
+    height: 100%;
+}
+
+#quickNote {
+    -ms-grid-column: 6;
+	-ms-grid-row: 2;
+	background-color: rgba(248, 83, 240, 0.49);
+	text-align: center;
+	color: white;
+	font-size: 30px;
+    cursor: pointer;
+    margin: 0px;
+    height: 100%;
+}
+
+#title{
+	-ms-grid-column: 5;
+	-ms-grid-row: 1;
+}
+
+#addRem .win-commandring {
+    border-color: white;
+}
+
+#addRem .win-commandimage {
+    color: white;
+}
+
+#cmdDelete .win-commandring, #cmdSave .win-commandring {
+    border-color: #171c3b;
+}
+
+#cmdDelete .win-commandimage, #cmdSave .win-commandimage {
+    color: #171c3b;
+}
+
+#alarmNotificationsCA.win-toggleswitch .win-switch::-ms-fill-lower {
+    background-color: #3b823b;
+}
+
+#alarmNotificationsCA.win-toggleswitch .win-switch::-ms-thumb {
+    background-color: #171c3b;
+}
+
+#alarmNotificationsCA .win-label {
+    color: rgb(59, 130, 59);
+}
+
+/*Text selection styles*/
+#alarmTimeCA::selection, #alarmTimeCA select:focus::-ms-value, #alarmDateCA::selection, #alarmDateCA select:focus::-ms-value, #noOfDays::selection, #noOfDays select:focus::-ms-value, #noOfWeeks::selection, #noOfWeeks select:focus::-ms-value {
+    background-color: rgba(59, 130, 59, 0.3);
+    color: rgb(59, 130, 59);
+}
+
+#alarmCycleCA::selection, #alarmCycleCA select:focus::-ms-value {
+    background-color: rgba(59, 130, 59, 0.3);
+    color: rgb(59, 130, 59);
+}
+
+#alarmTimeCA option:checked, #alarmDateCA option:checked {
+    background-color: rgba(59, 130, 59, 0.3);
+    color: rgb(59, 130, 59);
+}
+
+#alarmCycleCA option:checked {
+    background-color: rgba(59, 130, 59, 0.3);
+    color: rgb(59, 130, 59);
+}
+
+#alarmTimeCA option:checked:hover, #alarmTimeCA select:focus option:checked:hover, #alarmDateCA option:checked:hover, #alarmDateCA select:focus option:checked:hover, #alarmCycleCA option:checked:hover, #alarmCycleCA select:focus option:checked:hover {
+    background-color: rgba(59, 130, 59, 0.3);
+    color: rgb(59, 130, 59);
+}
+
+#alarmCycleCA option:checked:hover, #alarmCycleCA select:focus option:checked:hover {
+    background-color: rgba(59, 130, 59, 0.3);
+    color: rgb(59, 130, 59);
+}
+
+#cmdHome .win-commandring {
+    border-color: #171c3b;
+}
+
+#cmdHome .win-commandimage {
+    color: #171c3b;
+}

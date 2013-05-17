@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>currentAlarms</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-light.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+    
+    <link href="/css/currentAlarms.css" rel="stylesheet">
+    <script src="/js/currentAlarms.js"></script>
+    <script type="text/javascript">
+        function cycleChangeCA() {
+            var alaCycle = document.getElementById("alarmCycleCA");
+            alaCycle = alaCycle.options[alaCycle.selectedIndex].value;
+            if (alaCycle == "D") {
+                var no = document.getElementById("noOfDays").value;
+                document.getElementById("numberForDaily").style.display = "block";
+                document.getElementById("numberForWeekly").style.display = "none";
+                if (no == 0 || no == "") {
+                    document.getElementById("noOfDays").value = 30;
+                }
+            }
+            else if (alaCycle == "W") {
+                var no = document.getElementById("noOfDays").value;
+                document.getElementById("numberForWeekly").style.display = "block";
+                document.getElementById("numberForDaily").style.display = "none";
+                if (no == 0 || no == "") {
+                    document.getElementById("noOfWeeks").value = 52;
+                }
+            }
+            else {
+                document.getElementById("numberForWeekly").style.display = "none";
+                document.getElementById("numberForDaily").style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="listTemp" data-win-control="WinJS.Binding.Template">
+        <div class="mediumListIconTextItem">
+            <h2 data-win-bind="innerText: name"></h2>
+            <div class="mediumListIconTextItem-Detail">
+                <h4 data-win-bind="innerText: type"></h4>
+                <h6 data-win-bind="innerText: date"></h6>
+            </div>
+            <img src="#" class="mediumListIconTextItem-image" data-win-bind="src: picture" style="height: 40px; width: 40px;"/>
+        </div>
+    </div>
+
+    <div id="confirmDeleteFlyout" data-win-control="WinJS.UI.Flyout" aria-label="{Confirm delete flyout}" style="width: 202px; height: 80px;">
+        <div><b>Delete Alarm?</b></div><br />
+        <button id="deleteButton">Delete</button>
+        <button id="dontDeleteButton">Don't Delete</button>
+    </div>
+
+    <div id="alarmSavedFlyout" data-win-control="WinJS.UI.Flyout" aria-label="{Alarm saved flyout}">
+        <div><b>Alarm Successfully saved.</b></div><br />
+    </div>
+
+    <div class="ms-grid" style="-ms-grid-columns: 2fr 1fr 2fr 1fr 2fr; display: -ms-grid; -ms-grid-rows: 60px;">
+        <div id="setNewAlarm" onclick="CurrentAlarmsNS.navigateTo('setAlarm')">
+            <span style="position: relative; top: 5px;">Set New Reminder</span>
+            <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'addRem',icon:'add'}" style="position: relative; top: -3px;"></button>
+        </div>
+    </div>
+
+    <div class="ms-grid" style="-ms-grid-columns: 1fr 2fr 1fr 2fr 1fr 2fr 1fr; display: -ms-grid; -ms-grid-rows: 10px 60px; border-bottom-color: rgba(167, 57, 57, 100); border-bottom-width: 5px; border-bottom-style: solid;">
+        <div id="currentAlarms" onclick="CurrentAlarmsNS.navigateTo('currentAlarm')" style="background-color: rgba(167, 57, 57, 100);"><span style="position: relative; top: 5px;">Current Reminders</span></div>
+        <div id="thingsToDo" onclick="CurrentAlarmsNS.navigateTo('toDoList')"><span style="position: relative; top: 5px;">Things To Do</span></div>
+        <div id="quickNote" onclick="CurrentAlarmsNS.navigateTo('quickNote')"><span style="position: relative; top: 5px;">Quick Notes</span></div>
+    </div>
+
+    <div id="grid" style="display: -ms-grid; -ms-grid-columns: 3fr 7fr; -ms-grid-rows: 1fr; height: 634px;">
+        <div id="leftContainerCA">
+            <!--<table border="0" style="width: 100%">
+                <tr style="height: 100px;">
+                    <td>
+                        <span class="pagetitle">Current Alarms</span>
+                        <hr style="width: 90%; height: 2px;"/>
+                    </td>
+                </tr>
+            </table>-->
+            <div id="alarmsList" data-win-control="WinJS.UI.ListView" data-win-options="{itemTemplate: select('#listTemp'), onselectionchanged : listSelectionHandler, oniteminvoked : listTappingHandler, layout: { type: WinJS.UI.ListLayout }}"></div>
+        </div>
+        <div id="rightContainerCA">
+            <table style="width: 100%;" border="0">
+                <tr style="height: 10px">
+                    <td colspan="2">
+                        <span id="currentAlarmsError" class="validationError"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <span id="alarmName" style="font-size: 45px; border-style: none; left: -150px; position: relative; color: #3b823b; font-weight: bolder;"></span>
+                        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdDelete',icon:'delete',tooltip:'Delete Alarm'}" style="position: relative; left:730px; float: left;"></button>
+                        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdSave',icon:'save',tooltip:'Save Alarm'}" style="position: relative; left: 730px; float: left;"></button>
+                        <hr id="hrCA" style="width: 95%; visibility: hidden; border-width: 0px; height: 2px; background-color: rgba(23, 28, 59, 0.60);"/>
+				    </td>
+                </tr>
+                
+                <tr style="height: 5px">
+                    <td colspan="2">
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="column">
+                        <label class="alarmLabels">Alarm Type</label>
+                        <span id="alarmType" class="alarmValues"></span>
+                    </td>
+                    <td rowspan="5" style="vertical-align: top;">
+                        <label class="alarmLabels">Time</label><br />
+                        <div data-win-control="WinJS.UI.TimePicker" id="alarmTimeCA" data-win-options="{}" style="display: none; padding-left: 60px;"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="column">
+                        <label class="alarmLabels">Date</label>
+                        <div data-win-control="WinJS.UI.DatePicker" id="alarmDateCA" data-win-options="{minYear: 2012}" style="display: none; padding-left: 60px;"></div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="column">
+                        <label class="alarmLabels">Notes</label>
+                        <span id="alarmNotesCA" class="alarmValues"></span>
+                    </td>
+                </tr>
+                              
+            </table>
+            <table style="width: 100%" border="0">
+                <tr>
+                    <td class="column">
+                        <label class="alarmLabels">Cycle</label><br />
+                        <span id="alarmCycleText" class="alarmValues"></span>
+                        <select id="alarmCycleCA" style="margin-left: 60px; display: none; " onchange="cycleChangeCA()">
+                            <option value="N">None</option>
+							<option value="D">Everyday</option>
+							<option value="W">Every Week</option>
+							<option value="M">Every Month</option>
+							<option value="Y">Every year</option>
+					    </select>
+                    </td>
+                    <td class="column">
+                        <label class="alarmLabels">Alarm Notifications</label><br />
+                        <div id="alarmNotificationsCA" data-win-control="WinJS.UI.ToggleSwitch" data-win-options="{labelOff: 'Off', labelOn: 'On'}" style="display: none; padding-left: 60px;"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <span id="numberForDaily" style="display: none">
+                            <label class="alarmValues" style="font-weight: 400; color: #171c3b;">Number of Days:</label>
+                            <input id="noOfDays" size="12" style="margin-left: 25px; margin-top: 0px; color: #3b823b;"/>
+                        </span>
+                        <span id="numberForWeekly" style="display: none">
+                            <label class="alarmValues" style="font-weight: 400">Number of Weeks:</label>
+                            <input id="noOfWeeks" size="12" style="margin-left: 25px; margin-top: 0px;"/>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

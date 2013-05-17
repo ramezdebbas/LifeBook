@@ -1,0 +1,118 @@
+﻿#newAlarm {
+	width: 40%;
+    background-color: #ff7575;
+    height: 100%;
+}
+
+.column1{
+	width: 30%;
+	text-align: left;
+	padding-left: 40px;
+	font-size: large;
+	color: white;
+	font-weight: 400;
+}
+
+.column2{
+	width: 70%;
+	padding-left: 20px;
+}
+
+.tip {
+    font-size: medium;
+    color: #423a3a;
+    font-style: italic;
+    position: relative;
+    left: 0px;
+}
+
+#leftContainerSNA {
+    height: 100%;
+    width: 100%;
+    background-color: #171c3b;
+    -ms-grid-column: 1;
+    color: rgba(23, 28, 59, 1);
+    background-image: url('../images/left.jpg');
+}
+
+#rightContainerSNA {
+    height: 100%;
+    width: 100%;
+    -ms-grid-column: 2;
+}
+
+.pagetitle {
+    font-weight: bold;
+    font-size: 44px;
+    padding-left: 40px;
+    color: white;
+}
+
+[class^="win-timepicker"]{
+    font-size: 70px;
+    color: #040922;
+}
+
+#cmdCancel .win-commandring, #cmdSaveSNA .win-commandring {
+    border-color: white;
+}
+
+#cmdCancel .win-commandimage, #cmdSaveSNA .win-commandimage {
+    color: white;
+}
+
+#alarmNotifications.win-toggleswitch .win-switch::-ms-fill-lower {
+    background-color: forestgreen;
+}
+
+#alarmNotifications.win-toggleswitch .win-switch::-ms-thumb {
+    background-color: white;
+}
+
+#alarmNotifications .win-label {
+    color: white;
+}
+
+/*Text selection styles*/
+#alarmType::selection, #alarmType select:focus::-ms-value, #alarmType option:checked, #alarmType option:checked:hover, #alarmType select:focus option:checked:hover {
+    background-color: rgba(23, 28, 59, 0.3);
+    color: rgb(23, 28, 59);
+}
+
+#alarmCycle::selection, #alarmCycle select:focus::-ms-value, #alarmCycle option:checked, #alarmCycle option:checked:hover, #alarmCycle select:focus option:checked:hover {
+    background-color: rgba(23, 28, 59, 0.3);
+    color: rgb(23, 28, 59);
+}
+
+#alarmDate::selection, #alarmDate select:focus::-ms-value, #alarmDate option:checked, #alarmDate option:checked:hover, #alarmDate select:focus option:checked:hover {
+    background-color: rgba(23, 28, 59, 0.3);
+    color: rgb(23, 28, 59);
+}
+
+#alarmTime::selection, #alarmTime select:focus::-ms-value, #alarmTime option:checked, #alarmTime option:checked:hover, #alarmTime select:focus option:checked:hover {
+    background-color: rgba(23, 28, 59, 0.3);
+    color: rgb(23, 28, 59);
+}
+
+#alarmName::selection, #alarmName select:focus::-ms-value {
+    background-color: rgba(23, 28, 59, 0.3);
+    color: rgb(23, 28, 59);
+}
+
+#alarmNotes::selection, #alarmNotes select:focus::-ms-value {
+    background-color: rgba(23, 28, 59, 0.3);
+    color: rgb(23, 28, 59);
+}
+
+#cmdHomeSNA .win-commandring {
+    border-color: #171c3b;
+}
+
+#cmdHomeSNA .win-commandimage {
+    color: #171c3b;
+}
+
+#alarmName::-ms-clear {
+    /*color: #171c3b;*/
+    display: none;
+}

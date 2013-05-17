@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>createNewList</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-light.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+    
+    <link href="/css/createNewList.css" rel="stylesheet">
+    <script src="/js/createNewList.js"></script>
+</head>
+<body>
+    <div id="taskTemp" data-win-control="WinJS.Binding.Template">
+        <h3 data-win-bind="innerText: taskName" class="taskText"></h3>
+    </div>
+    <div id="grid" style="display: -ms-grid; -ms-grid-columns: 2fr 3fr; -ms-grid-rows: 1fr; height: 768px;">
+        
+    <div id="leftContainerCNL">
+            
+					<table style="width:100%" border="0">
+                        <tr style="height: 100px;">
+                            <td>
+                                <span class="pagetitle">Create New List</span>
+                                <hr style="width: 90%; height: 2px;"/>
+                            </td>
+                        </tr>
+
+						<tr>
+							<td style="font-size: x-large; font-weight: 400; padding-left: 40px;">
+								<span style="color: white;">List Item:</span><br />
+								<input type="text" id="listItem" onkeypress="CreateNewListNS.handleEnter(this, event)">
+                                <div id="listTip">Enter a task and click <b>enter</b> or add button to append it to the list.</div>
+                            </td>
+						</tr>
+                        <tr>
+                            <td>
+                                <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdAddTask',icon:'add',tooltip:'Add Task to List', section: 'global'}" style="position: relative; left: 380px"></button>
+                                <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdRemoveTask',icon:'remove',tooltip:'Removes selected task from List', section: 'global'}" style="position: relative; left: 330px"></button>
+                            </td>
+                        </tr>
+					</table>
+        
+        </div>
+        <div id="rightContainerCNL">
+            <table border="0">
+                <tr>
+                    <td>
+                        <input id="listName" type="text" value="List Name" style="font-size: 40px; left: 30px; border-style: none; position: relative; top: 5px; width: 400px; color: #171c3b;" onfocus="CreateNewListNS.clear('listName')" onblur="CreateNewListNS.checkText('listName')"/>
+                        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdCancelCNL',icon:'cancel',tooltip:'', section: 'global'}" style="position: relative; left: 250px; top: -5px;"></button>
+                        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdCreateCNL',icon:'accept',tooltip:'Create List', section: 'global'}" style="position: relative; left: 220px; top: -5px;"></button>
+				    </td>
+                </tr>
+            </table>
+            <hr id="hrTDL" style="width: 95%; visibility: visible; border-width: 0px; height: 2px; background-color: rgba(23, 28, 59, 0.60);"/>
+            <span id="createNewListError" class="validationError"></span>
+            <div id="taskList" data-win-control="WinJS.UI.ListView" data-win-options="{itemTemplate: select('#taskTemp'), layout: { type: WinJS.UI.ListLayout }}"></div>
+        </div>
+        </div>
+</body>
+</html>

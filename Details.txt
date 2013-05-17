@@ -1,0 +1,16 @@
+Life Book:
+Description:
+Life book is an productive app for every user, User can plan & schedule the goals, reminders, and the plan settings here are, how to implement them to achieve the life’s goals.
+
+Features:
+•	Add Tasks into the App.
+•	User Interaction & Support.
+•	Delete the task.
+•	Add Reminder
+•	Delete Reminder.
+•	Add the data and Check or Uncheck.
+•	Task to do. 
+•	Fully Different User Interface Designed keeping in focus point of view of Niche (Target) Market.
+•	 Live Tiles(Locally & Remotely)
+•	Searching feature.
+•	Fully Unique Branding (Unique Logo Designing & Graphics Designing).

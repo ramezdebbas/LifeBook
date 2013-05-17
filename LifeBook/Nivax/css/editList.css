@@ -1,0 +1,69 @@
+﻿#taskList {
+    height: 70%;
+	width: 90%;
+	padding-left: 40px;
+    color: black;
+}
+
+.taskText {
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    overflow: hidden;
+    display: -ms-box;
+    font-size: x-large;
+    font-weight: 500
+}
+
+#leftContainerEL {
+    height: 100%;
+    width: 100%;
+    background-color: #FFFFFF;
+    -
+        
+        
+        
+        
+        
+        
+        -column: 1;
+    background-image: url('../images/left.jpg');
+}
+
+#rightContainerEL {
+    height: 100%;
+    width: 100%;
+    -ms-grid-column: 2;
+    background-image: url('../images/right.jpg');
+}
+
+.pagetitle {
+    font-weight: bold;
+    font-size: 44px;
+    padding-left: 40px;
+    color: white;
+}
+
+.tip {
+    font-size: medium;
+    color: #423a3a;
+    font-style: italic;
+    position: relative;
+    left: 0px;
+}
+
+#cmdCancelEL .win-commandring, #cmdUpdateEL .win-commandring {
+    border-color: #171c3b;
+}
+
+#cmdCancelEL .win-commandimage, #cmdUpdateEL .win-commandimage {
+    color: #171c3b;
+}
+
+#cmdAddTask .win-commandring, #cmdRemoveTask .win-commandring {
+    border-color: white;
+}
+
+#cmdAddTask .win-commandimage, #cmdRemoveTask .win-commandimage {
+    color: white;
+}

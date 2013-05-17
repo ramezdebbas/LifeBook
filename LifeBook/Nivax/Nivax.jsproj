@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|AnyCPU">
+      <Configuration>Debug</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x86">
+      <Configuration>Debug</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|AnyCPU">
+      <Configuration>Release</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x86">
+      <Configuration>Release</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>08fd2c8f-32bc-4dd4-9707-9e9787b3987f</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0'">
+    <VisualStudioVersion>11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).Default.props" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).props" />
+  <PropertyGroup>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <TargetPlatformVersion>8.0</TargetPlatformVersion>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <PackageCertificateKeyFile>Nivax_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>BF84E0D99EB14D076A6B71683D1FC4B7392CF13D</PackageCertificateThumbprint>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppxManifest Include="package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <Content Include="css\createNewList.css" />
+    <Content Include="css\currentAlarms.css" />
+    <Content Include="css\default.css" />
+    <Content Include="css\editList.css" />
+    <Content Include="css\quickNote.css" />
+    <Content Include="css\setNewAlarm.css" />
+    <Content Include="css\toDoList.css" />
+    <Content Include="default.html" />
+    <Content Include="html\createNewList.html" />
+    <Content Include="html\currentAlarms.html" />
+    <Content Include="html\editList.html" />
+    <Content Include="html\quickNote.html" />
+    <Content Include="html\setNewAlarm.html" />
+    <Content Include="html\toDoList.html" />
+    <Content Include="images\0002.png" />
+    <Content Include="images\bday.png" />
+    <Content Include="images\full.jpg" />
+    <Content Include="images\bill.png" />
+    <Content Include="images\call.png" />
+    <Content Include="images\left.jpg" />
+    <Content Include="images\left2.jpg" />
+    <Content Include="images\Logo.png" />
+    <Content Include="images\medicine.ico" />
+    <Content Include="images\meeting.png" />
+    <Content Include="images\notebook-image.jpg" />
+    <Content Include="images\right.jpg" />
+    <Content Include="images\SmallLogo.png" />
+    <Content Include="images\SplashScreen.png" />
+    <Content Include="images\StoreLogo.png" />
+    <Content Include="images\TrackHBadgeLogo.png" />
+    <Content Include="images\WideLogo.png" />
+    <Content Include="js\createNewList.js" />
+    <Content Include="js\currentAlarms.js" />
+    <Content Include="js\default.js" />
+    <Content Include="js\editList.js" />
+    <Content Include="js\navigator.js" />
+    <Content Include="js\quickNote.js" />
+    <Content Include="js\setNewAlarm.js" />
+    <Content Include="js\toDoList.js" />
+    <None Include="Nivax_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="Microsoft.WinJS.1.0, Version=1.0" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).targets" />
+  <!-- To modify your build process, add your task inside one of the targets below then uncomment
+       that target and the DisableFastUpToDateCheck PropertyGroup. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <PropertyGroup>
+    <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
+  </PropertyGroup>
+  -->
+</Project>

@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>setNewAlarm</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-light.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <link href="/css/default.css" rel="stylesheet">
+    <link href="/css/setNewAlarm.css" rel="stylesheet">
+    <script src="/js/setNewAlarm.js"></script>
+    <script type="text/javascript">
+        
+    </script>
+</head>
+<body>
+    <div id="confirmFlyout" data-win-control="WinJS.UI.Flyout" aria-label="{Confirm alarm flyout}" style="width: 200px; height: 80px;">
+        <div><b>Save Alarm?</b></div><br />
+        <button id="saveButton">Save</button>
+        <button id="dontSaveButton">Don't Save</button>
+    </div>
+    <div id="grid" style="display: -ms-grid; -ms-grid-columns: 2fr 3fr; -ms-grid-rows: 800px 1fr; height: 100%;">
+
+    <div id="leftContainerSNA">
+				<form id="newAlarmForm" style="height: inherit;">
+					<table style="width:100%;">
+                        <tr style="height: 100px;">
+                            <td colspan="2">
+                                <span class="pagetitle">Alarm Details:</span>
+                                <hr style="width: 90%; height: 2px;"/>
+                            </td>
+                        </tr>
+						<tr>
+							<td class="column1" colspan="2">Alarm Type:<br />
+							<select id="alarmType">
+								<option value="BILLS">Bills</option>
+								<option value="MEETING">Meeting</option>
+								<option value="CALL">Call</option>
+								<option value="BIRTHDAY">Birthday</option>
+								<option value="ANNIVERSARY">Anniversary</option>
+								<option value="MEDICINE">Medicine Reminder</option>
+							</select><br /><br />
+                                </td>
+						</tr>
+
+						<tr>
+							<td class="column1" colspan="2">
+								Date:<br />
+								<div data-win-control="WinJS.UI.DatePicker" id="alarmDate" data-win-options="{minYear: 2012}"></div><br /><br />
+							</td>
+						</tr>
+
+                        <tr>
+							<td class="column1" colspan="2">
+								Time:<br /><br />
+								<div id="alarmTime" style="margin-left: 50px;"></div><br /><br />
+							</td>
+						</tr>
+
+                        <tr>
+                            <td class="column1" colspan="2">
+                                Alarm Notifications:
+                                <div id="alarmNotifications" data-win-control="WinJS.UI.ToggleSwitch" data-win-options="{labelOff: 'Off', labelOn: 'On'}" style="margin-left: 50px;"></div>
+                            </td>
+                        </tr>
+
+						<tr>
+							<td class="column1">
+                                <span id="cycle" style="display: none">
+								    Cycle:<br />
+								    <select id="alarmCycle" style="margin-left: 50px;" onchange="SetNewAlarmNS.cycleChange()">
+                                        <option value="N">None</option>
+									    <option value="D">Everyday</option>
+									    <option value="W">Every Week</option>
+									    <option value="M">Every Month</option>
+									    <option value="Y">Every year</option>
+								    </select>
+                                </span>
+                            </td>
+                            <td class="column1">
+                                <span id="numberForDaily" style="display: none">
+                                    Number of Days: <br />
+                                    <input id="noOfDays" value="30" size="15" style="margin-left: 50px; margin-top: 1px;"/>
+                                </span>
+                                <span id="numberForWeekly" style="display: none">
+                                    Number of Weeks: <br />
+                                    <input id="noOfWeeks" value="52" size="15" style="margin-left: 50px; margin-top: 1px;"/>
+                                </span>
+							</td>
+						</tr>
+					</table>
+                    <br />
+					<table style="width: 100%;">
+						<tr style="height: 30px;">
+							<td colspan="2"></td>
+						</tr>
+						<tr>
+							<td style="width: 30%"></td>
+							<td style="width: 70%; padding-left: 20px;">
+								<button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdCancel',icon:'cancel',tooltip:'cancel', section: 'global'}" style="position: relative; left: 150px;"></button>
+                                <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdSaveSNA',icon:'accept',tooltip:'Add item', section: 'global'}" style="position: relative; left: 120px;"></button><br />
+							</td>
+						</tr>
+                        <tr style="height: 30px;">
+							<td colspan="2"></td>
+						</tr>
+					</table>
+				</form>
+        </div>
+        <div id="rightContainerSNA">
+            <table border="0" style="width: 100%">
+                <tr>
+                    <td>
+                        <input id="alarmName" type="text" value="Alarm Name" style="font-size: 40px; position: relative; top: 17px; left: 30px; color: #171c3b; width: 400px; border: none;" onblur="SetNewAlarmNS.checkText('alarmName');" onfocus="SetNewAlarmNS.clear('alarmName');"/>
+                        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdHomeSNA',icon:'home',tooltip:'Home', section: 'global'}" style="position: relative; left: 290px;"></button>
+				    </td>
+                </tr>
+                <tr style="height: 30px;">
+                    <td style="padding-left: 35px;">
+                        <span id="alarmError" class="validationError"></span>
+                    </td>
+                </tr>
+            </table>
+            <hr style="width: 90%; margin-top: -4px;"/>
+            <textarea id="alarmNotes" style="margin-left: 40px; border-color: black; margin-top: 20px; height: 70%; width: 90%; font-size: 20px; border-style: none; color: #171c3b;" onfocus="SetNewAlarmNS.clear('alarmNotes');" onblur="SetNewAlarmNS.checkText('alarmNotes');">Add notes....</textarea>
+        </div>
+    </div>
+			  	
+</body>
+</html>

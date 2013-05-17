@@ -1,0 +1,91 @@
+﻿#toDoListDisplay {
+	height: 70%;
+	width: 93%;
+	padding-left: 40px;
+    color: #3b823b;
+}
+    #toDoListDisplay .win-container.win-selected .win-selectionborder {
+        border-color: #3b823b;
+    }
+    #toDoListDisplay .win-container.win-selected .win-selectioncheckmarkbackground {
+        border-top-color: #3b823b;
+        border-right-color: #3b823b;
+        border-left-color: transparent;
+        border-bottom-color: transparent;
+    }
+
+#taskL{
+	height: 70%;
+	width: 80%;
+    padding-top: 20px;
+	padding-left: 70px;
+    /*color: #8989ff;*/
+    color: rgb(255, 0, 234);
+}
+    #taskL .win-container.win-selected .win-selectionborder {
+        border-color: #5b54ff;
+    }
+    #taskL .win-container.win-selected .win-selectioncheckmarkbackground {
+        border-top-color: #5b54ff;
+        border-right-color: #5b54ff;
+        border-left-color: transparent;
+        border-bottom-color: transparent;
+    }
+
+#leftContainerTDL {
+    height: 100%;
+    width: 100%; /*background-color: #9f00ff;*/
+    -
+        
+        -column: 1;
+    background-image: url('../images/left2.jpg');
+}
+
+#rightContainerTDL {
+    height: 100%;
+    width: 100%;
+    -ms-grid-column: 2;
+}
+
+.pagetitle {
+    font-weight: bold;
+    font-size: 44px;
+    padding-left: 40px;
+    color: white;
+}
+
+.listItem
+{
+    height: 70px;
+    padding: 5px;
+    overflow: hidden;
+    display: -ms-grid;
+    -ms-grid-rows: 1fr 1fr;
+}
+
+    .listItem .listItem-Detail
+    {
+        margin: 5px;
+        -ms-grid-column: 1;
+        -ms-grid-row: 2;
+    }
+
+.taskInfo {
+    height: 60px;
+    padding-left: 10px;
+    overflow: hidden;
+    display: -ms-grid;
+    -ms-grid-columns: 3fr 1fr;
+}
+
+    .taskInfo .taskInfo-detail {
+        -ms-grid-column: 2;
+    }
+
+#cmdDeleteTDL .win-commandring, #cmdSaveTDL .win-commandring, #cmdEditTDL .win-commandring {
+    border-color: #171c3b;
+}
+
+#cmdDeleteTDL .win-commandimage, #cmdSaveTDL .win-commandimage, #cmdEditTDL .win-commandimage {
+    color: #171c3b;
+}

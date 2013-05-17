@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>memos</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-light.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <link href="/css/quickNote.css" rel="stylesheet" />
+    <script src="/js/quickNote.js"></script>
+</head>
+<body>
+    <div id="notesTemplate" data-win-control="WinJS.Binding.Template">
+        <div>
+            <h3 style="color: #171c3b;" data-win-bind="innerText: noteDate"></h3>
+            <hr style="margin-top: -1px;"/>
+            <div class="noteText" data-win-bind="innerText: noteText"></div>
+            <h6 data-win-bind="innerText: noteFileName" style="visibility: hidden"></h6>
+        </div>
+    </div>
+    <div id="noteOptionsFlyout" data-win-control="WinJS.UI.Flyout" aria-label="{Note Options Flyout}" style="width: 185px; height: 40px;">
+        <button id="editNote">Edit</button>
+        <button id="deleteNote">Delete</button>
+    </div>
+    <div id="newNoteFlyout" data-win-control="WinJS.UI.Flyout" aria-label="{New Note Flyout}" style="width: 280px; height: 200px;">
+        <textarea class="newNoteText" id="note"></textarea>
+        <button id="cancelQuickNote">Cancel</button>
+        <button id="saveQuickNote">Save</button>
+    </div>
+    <div id="editNoteFlyout" data-win-control="WinJS.UI.Flyout" aria-label="{Edit Note Flyout}" style="width: 280px; height: 200px;">
+        <textarea class="newNoteText" id="editNoteText"></textarea>
+        <button id="editNoteCancel">Cancel</button>
+        <button id="editNoteSave">Save</button>
+    </div>
+
+    <div class="ms-grid" style="-ms-grid-columns: 2fr 1fr 2fr 1fr 2fr; display: -ms-grid; -ms-grid-rows: 60px;">
+        <div id="setNewAlarm" onclick="CurrentAlarmsNS.navigateTo('setAlarm')">
+            <span style="position: relative; top: 5px;">Set New Reminder</span>
+            <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'addRem',icon:'add'}" style="position: relative; top: -3px;"></button>
+        </div>
+    </div>
+
+    <div class="ms-grid" style="-ms-grid-columns: 1fr 2fr 1fr 2fr 1fr 2fr 1fr; display: -ms-grid; -ms-grid-rows: 10px 60px; border-bottom-color: rgba(167, 57, 57, 100); border-bottom-width: 5px; border-bottom-style: solid;">
+        <div id="currentAlarms" onclick="CurrentAlarmsNS.navigateTo('currentAlarm')"><span style="position: relative; top: 5px;">Current Reminders</span></div>
+        <div id="thingsToDo" onclick="CurrentAlarmsNS.navigateTo('toDoList')"><span style="position: relative; top: 5px;">Things To Do</span></div>
+        <div id="quickNote" onclick="CurrentAlarmsNS.navigateTo('quickNote')"  style="background-color: rgba(167, 57, 57, 100);"><span style="position: relative; top: 5px;">Quick Notes</span></div>
+    </div>
+    <div style="display: -ms-grid; -ms-grid-columns: 7fr 1fr 1fr 1fr; -ms-grid-rows: 60px;">
+        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'refreshButton',icon:'refresh', tooltip: 'Refresh'}"></button>
+        <div id="addNote" onclick="QuickNotesNS.addNewNote()">Add Note</div>
+    </div>
+    <div id="notesGrid" data-win-control="WinJS.UI.ListView" data-win-options="{itemTemplate: select('#notesTemplate'), oniteminvoked :noteOptions, layout: { type: WinJS.UI.GridLayout, maxRows: 4 } }"></div>
+</body>
+</html>

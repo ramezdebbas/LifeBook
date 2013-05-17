@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>toDoList</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-light.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+    
+    <link href="/css/toDoList.css" rel="stylesheet">
+    <script src="/js/toDoList.js"></script>
+</head>
+<body>
+    <div id="itemTemp" data-win-control="WinJS.Binding.Template">
+        <div class="taskInfo">
+            <h2 data-win-bind="innerText: taskName"></h2>
+            <div class="taskInfo-detail">
+                <h4 data-win-bind="innerText: taskStatus" style="font-style: italic"></h4>
+            </div>
+        </div>
+    </div>
+
+    <div id="displayListTemp" data-win-control="WinJS.Binding.Template">
+        <div class="listItem">
+            <h2 data-win-bind="innerText: listName"></h2>
+            <div class="listItem-Detail">
+                <h4 data-win-bind="innerText: creationDate"></h4>
+            </div>
+        </div>
+    </div>
+
+    <div id="confirmListDeleteFlyout" data-win-control="WinJS.UI.Flyout" aria-label="{Confirm list delete flyout}" style="width: 202px; height: 80px;">
+        <div><b>Delete List?</b></div><br />
+        <button id="deleteListButton">Delete</button>
+        <button id="dontDeleteListButton">Don't Delete</button>
+    </div>
+
+    <div id="listSavedFlyout" data-win-control="WinJS.UI.Flyout" aria-label="{List saved flyout}">
+        <div><b>List Successfully saved.</b></div><br />
+    </div>
+
+    <div class="ms-grid" style="-ms-grid-columns: 2fr 1fr 2fr 1fr 2fr; display: -ms-grid; -ms-grid-rows: 60px;">
+        <div id="setNewAlarm" onclick="CurrentAlarmsNS.navigateTo('setAlarm')">
+            <span style="position: relative; top: 5px;">Set New Reminder</span>
+            <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'addRem',icon:'add'}" style="position: relative; top: -3px;"></button>
+        </div>
+    </div>
+
+    <div class="ms-grid" style="-ms-grid-columns: 1fr 2fr 1fr 2fr 1fr 2fr 1fr; display: -ms-grid; -ms-grid-rows: 10px 60px; border-bottom-color: rgba(167, 57, 57, 100); border-bottom-width: 5px; border-bottom-style: solid;">
+        <div id="currentAlarms" onclick="CurrentAlarmsNS.navigateTo('currentAlarm')"><span style="position: relative; top: 5px;">Current Reminders</span></div>
+        <div id="thingsToDo" onclick="CurrentAlarmsNS.navigateTo('toDoList')" style="background-color: rgba(167, 57, 57, 100);"><span style="position: relative; top: 5px;">Things To Do</span></div>
+        <div id="quickNote" onclick="CurrentAlarmsNS.navigateTo('quickNote')"><span style="position: relative; top: 5px;">Quick Notes</span></div>
+    </div>
+
+    <div id="grid" style="display: -ms-grid; -ms-grid-columns: 3fr 7fr; -ms-grid-rows: 1fr; height: 768px;">
+
+    <div id="leftContainerTDL">
+           <form id="toDoListForm"> 
+            <table border="0" style="width: 100%">
+                <tr>
+                    <td style="text-align: right; padding-right: 40px;">
+                        <input type="button" style="width: 150px; margin-top: 20px; color: rgba(167, 57, 57, 1);" value="Create New List" onclick="ToDoListNS.navigateTo('newList')"/>
+                    </td>
+                </tr>
+            </table>
+               </form>
+               <div id="taskL" data-win-control="WinJS.UI.ListView" data-win-options="{itemTemplate: select('#displayListTemp'), oniteminvoked : listTappingHandler, layout: { type: WinJS.UI.ListLayout }}"></div>
+            
+                
+        </div>
+        <div id="rightContainerTDL">
+            <table border="0" style="width: 100%">
+                <tr style="height: 10px;">
+                    <td colspan="2">
+                        <span id="listError" class="validationError"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span id="listName" style="font-size: 40px; border-style: none; left: -250px; position: relative; color: #3b823b;"></span>
+                        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdDeleteTDL',icon:'delete',tooltip:'Delete List', section: 'global'}" style="position: relative;left: 630px; float: left;"></button>
+                        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdEditTDL',icon:'edit',tooltip:'Edit List', section: 'global'}" style="position: relative; left: 630px; float: left;"></button>
+                        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdSaveTDL',icon:'save',tooltip:'Save List', section: 'global'}" style="position: relative; left: 630px; float: left;"></button>
+                        <hr id="hrTDL" style="width: 95%; visibility: hidden; border-width: 0px; height: 2px; background-color: rgba(23, 28, 59, 0.60);"/>
+				    </td>
+                </tr>
+            </table>
+            <div id="toDoListDisplay" data-win-control="WinJS.UI.ListView" data-win-options="{itemTemplate: select('#itemTemp'), layout: { type: WinJS.UI.ListLayout }, selectionMode: 'none', oniteminvoked : listTappingHandler}"></div>
+        </div>
+        </div>
+</body>
+</html>

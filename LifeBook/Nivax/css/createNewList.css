@@ -1,0 +1,101 @@
+﻿.column1{
+	width: 30%;
+	text-align: left;
+	padding-left: 120px;
+	font-size: large;
+	color: white;
+	font-weight: 400;
+}
+
+.column2{
+	width: 70%;
+	padding-left: 20px;
+}
+
+#taskList {
+    height: 70%;
+	width: 90%;
+	padding-left: 40px;
+    color: forestgreen;
+}
+    #taskList .win-container.win-selected .win-selectionborder {
+        border-color: #171c3b;
+    }
+
+    #taskList .win-container.win-selected .win-selectioncheckmarkbackground {
+        border-top-color: #171c3b;
+        border-right-color: #171c3b;
+        border-left-color: transparent;
+        border-bottom-color: transparent;
+    }
+
+.taskText {
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    overflow: hidden;
+    display: -ms-box;
+    font-size: x-large;
+    font-weight: 500
+}
+
+#leftContainerCNL {
+    height: 100%;
+    width: 100%;
+    background-color: #900ff;
+    -ms-grid-column: 1;
+    background-image: url('../images/left.jpg');
+}
+
+#rightContainerCNL {
+    height: 100%;
+    width: 100%;
+    -ms-grid-column: 2;
+    background-image: url('../images/right.jpg');
+}
+
+.pagetitle {
+    font-weight: bold;
+    font-size: 44px;
+    padding-left: 40px;
+    color: white;
+}
+
+#listTip {
+    font-size: medium;
+    color: white;
+    font-style: italic;
+    position: relative;
+    left: 0px;
+}
+
+#listItem {
+    color: #171c3b;
+    font-size: 30px;
+    border-color: forestgreen;
+    border-width: 6px;
+    width: 90%;
+}
+    #listItem::-ms-clear {
+        color: #171c3b;
+    }
+
+#cmdAddTask .win-commandring, #cmdRemoveTask .win-commandring {
+    border-color: white;
+}
+
+#cmdAddTask .win-commandimage, #cmdRemoveTask .win-commandimage {
+    color: white;
+}
+
+#cmdCancelCNL .win-commandring, #cmdCreateCNL .win-commandring {
+    border-color: #171c3b;
+}
+
+#cmdCancelCNL .win-commandimage, #cmdCreateCNL .win-commandimage {
+    color: #171c3b;
+}
+
+#listName::-ms-clear {
+    display: none;
+}
